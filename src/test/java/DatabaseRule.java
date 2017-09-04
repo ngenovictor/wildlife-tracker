@@ -10,6 +10,9 @@ public class DatabaseRule extends ExternalResource{
     @Override
     protected void after(){
         try(Connection conn = DB.sql2o.open()){
+            String sql = "DELETE FROM animals *";
+            conn.createQuery(sql)
+                    .executeUpdate();
 
         }
     }
